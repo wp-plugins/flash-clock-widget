@@ -9,6 +9,7 @@ Stable tag: trunk
 
 Flash Clock Widget allows you to add a flash clock widget to your wordpress.  This plugin include 24 different flash clocks. All clock are relatively small flash files and look very sharp.  Most work with any theme.  
 
+<a href="http://wordpress.org/extend/plugins/flash-clock-widget/screenshots/">See screenshots  </a>
 == Installation ==
 
 1. Download the zip file and extract the contents.
