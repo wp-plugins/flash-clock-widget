@@ -86,7 +86,7 @@ function widget_init_Flash_Clock_Widget_widget() {
 		$options = get_option('Flash_Clock_widget');
 		$title = empty($options['title']) ? __('Flash Clock Widget') : $options['title'];
 		?>
-	        <?php echo $before_widget; ?>
+	        <?php echo $before_widget; ?>	
 				<?php echo $before_title . $title . $after_title; ?>
 				<?php 
 					if( !stristr( $_SERVER['PHP_SELF'], 'widgets.php' ) ){
