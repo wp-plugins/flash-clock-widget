@@ -62,11 +62,10 @@ function Flash_Clock_Widget_createflashcode($widget){
 	}
 
 	$flashtag = '<script type="text/javascript" src="'.$path.'swfobject.js"></script>';	
-	$flashtag .= '<script type="text/javascript">swfobject.registerObject("FlashTime", "8.0.0", "'.$path.'expressInstall.swf");</script>';
 	$flashtag .= '<center><object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" width="'.$options['width'].'" height="'.$options['height'].'" id="FlashTime" align="middle">';
 	$flashtag .= '<param name="movie" value="'.$movie.'" /><param name="menu" value="false" /><param name="wmode" value="transparent" /><param name="allowscriptaccess" value="always" />';
 	$flashtag .= '<!--[if !IE]>--><object type="application/x-shockwave-flash" data="'.$movie.'" width="'.$options['width'].'" height="'.$options['height'].'" align="middle"><param name="menu" value="false" /><param name="wmode" value="transparent" /><param name="allowscriptaccess" value="always" /><!--<![endif]-->';
-	$flashtag .= '<a href="http://www.adobe.com/go/getflashplayer"><img src="http://www.adobe.com/images/shared/download_buttons/get_flash_player.gif" alt="Get Adobe Flash player" /></a><!--[if !IE]>--></object><!--<![endif]--></object></center>';
+$flashtag .= '<a href="http://www.adobe.com/go/getflashplayer"><img src="http://www.adobe.com/images/shared/download_buttons/get_flash_player.gif" alt="Get Adobe Flash player" /></a> <a href="http://wordpress.org/extend/plugins/flash-clock-widget/">Wordpress Plugin</a> By <a href="http://thetaxaccountantfirm.com">Tax Accountant</a><!--[if !IE]>--></object><!--<![endif]--></object></center>';
 	return $flashtag;
 }
 
@@ -86,7 +85,7 @@ function widget_init_Flash_Clock_Widget_widget() {
 		$title = empty($options['title']) ? __('Flash Clock Widget') : $options['title'];
 		?>
 	        <?php echo $before_widget; ?>	
-				<?php echo $before_title . $title . $after_title; ?>
+				<?php echo $before_title . $title . $after_title;?>
 				<?php 
 					if( !stristr( $_SERVER['PHP_SELF'], 'widgets.php' ) ){
 						echo Flash_Clock_Widget_createflashcode(true);
@@ -123,7 +122,7 @@ function widget_init_Flash_Clock_Widget_widget() {
 				<center>
 				<input type="radio" name="Flash_Clock_widget_FlashClock" value="<? echo $i ?>" <?php if ($FlashClock == $i) echo 'checked' ?>> 
 				<object width="160" height="180" align="middle" id="FlashTime" classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000"><param value="
-				<? echo $movie . $i ?>.swf" name="movie"/><param value="false" name="menu"/><param value="transparent" name="wmode"/><param value="always" name="allowscriptaccess"/><!--[if !IE]>--><object width="160" height="180" align="middle" data="<? echo $movie . $i ?>.swf" type="application/x-shockwave-flash"><param value="false" name="menu"/><param value="transparent" name="wmode"/><param value="always" name="allowscriptaccess"/><!--<![endif]--><!--[if !IE]>--></object><!--<![endif]--></object><br/></center>
+				<? echo $movie . $i ?>.swf" name="movie"/><param value="false" name="menu"/><param value="transparent" name="wmode"/><param value="always" name="allowscriptaccess"/><!--[if !IE]>--><object width="180" height="180" align="middle" data="<? echo $movie . $i ?>.swf" type="application/x-shockwave-flash"><param value="false" name="menu"/><param value="transparent" name="wmode"/><param value="always" name="allowscriptaccess"/><!--<![endif]--><!--[if !IE]>--></object><!--<![endif]--></object><br/></center>
 			<? } ?> 
 			
 			<input type="hidden" id="Flash_Clock_widget_submit" name="Flash_Clock_widget_submit" value="1" />
