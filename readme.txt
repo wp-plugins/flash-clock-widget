@@ -1,8 +1,8 @@
 === Flash Clock Widget ===
 Contributors: agbell2
 Tags: flash, clock, time, widget, sidebar, image, page, plugin
-Requires at least: 2.3
-Tested up to: 2.8
+Requires at least: 2.0
+Tested up to: 2.9.1
 Stable tag: trunk
 
 == Description ==
